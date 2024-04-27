@@ -1,17 +1,17 @@
 package douglas.eventodev2024.domain;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 
-@MappedSuperclass
+@Entity
+@Table(name = "submissao")
 public class Submissao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String tituloSubmissao;
     private int situacaoSubmissao;
+    private String abstractArtigo;
+    private String arquivo;
 
     public Long getId() {
         return id;
@@ -35,5 +35,21 @@ public class Submissao {
 
     public void setSituacaoSubmissao(int situacaoSubmissao) {
         this.situacaoSubmissao = situacaoSubmissao;
+    }
+
+    public String getAbstractArtigo() {
+        return abstractArtigo;
+    }
+
+    public void setAbstractArtigo(String abstractArtigo) {
+        this.abstractArtigo = abstractArtigo;
+    }
+
+    public String getArquivo() {
+        return arquivo;
+    }
+
+    public void setArquivo(String arquivo) {
+        this.arquivo = arquivo;
     }
 }
